@@ -1,0 +1,33 @@
+matches => "[クリスマスデート] [オークション] " , :order => :desc
+
+Rubyだっけ
+
+paiza.hatenablog.com
+
+schwa.jp
+
+Textの長さ（sentence size)
+
+get_sentence_size.rb
+
+LitCharts: The Grapes of Wrath ANALYSIS A Look at the Allegory in Steinbeck’s Grapes of
+
+
+
+top-k - Text Top-K. Find top n most frequent words.
+
+
+
+data science of digital camera picture - Loading 3200 pictures from a camera into R
+
+
+
+fdsa-ruby - Forged Documents with Synthetic Autographs (ruby version)
+
+
+
+Diffs by content length for GNU find [biglist.io]
+
+findの help へのリンク
+
+16 15
