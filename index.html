@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <style>
+        body{
+            padding: 0 15vw 0 15vw;
+        }
+        h1 {
+            font-size: 10vw;
+            margin-bottom: 0;
+        }
+        h2 {
+            font-size: 3vw;
+            margin: 0;
+        }
+        h3 {
+            margin-bottom: 10vh;
+        }
+        p {
+            font-size: 20pt;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 align=center>Dalle News</h1>
+    <h3 align=center></h3>
+
+    <h2></h2> 
+    <img src="censored.png" width=30% height=100%>
+    <p></p>    
+
+    <h2></h2> 
+    <img src="censored.png" width=30% height=100%>
+    <p></p>
+
+    <h2></h2> 
+    <img src="censored.png" width=30% height=100%>
+    <p></p>
+
+    <h2></h2> 
+    <img src="censored.png" width=30% height=100%>
+    <p></p>
+
+    <h2></h2> 
+    <img src="censored.png" width=30% height=100%>
+    <p></p>
+
+    <h2></h2> 
+    <img src="censored.png" width=30% height=100%>
+    <p></p>
+
+    <h2></h2> 
+    <img src="censored.png" width=30% height=100%>
+    <p></p>
+
+    <h2></h2> 
+    <img src="censored.png" width=30% height=100%>
+    <p></p>
+
+    <h2></h2> 
+    <img src="censored.png" width=30% height=100%>
+    <p></p>
+
+    <h2></h2> 
+    <img src="censored.png" width=30% height=100%>
+    <p></p>
+
+</body>
+
+<footer>
+    <script>
+        const d = new Date();
+        let month = d.getMonth() + 1;
+        let day = d.getDate();
+        
+        var dataRoot = "https://raw.githubusercontent.com/PascalCeccaldi/dallefeed/main/"
+        var dateExt = month + '/' + day
+
+        var h3 = document.querySelector("h3");
+        h3.innerHTML = d.toDateString();
+        
+        var elems = document.getElementsByTagName("img");
+        for (let i = 0; i < elems.length; i++) {
+            var elem = elems[i];
+            var ext = '/trend_' + i + ".png";
+            elem.src = dataRoot + dateExt + ext;
+        }
+
+        var trendsURL = dataRoot + dateExt + "/trends.txt";
+        
+        var trends;
+        var trends_data = jQuery.get(trendsURL, function(trends_data) {
+            trends = trends_data.split('\n')
+        })
+        .done(function() {
+            var h2s = document.getElementsByTagName("h2");
+            var ps = document.getElementsByTagName("p");
+            for (let i = 0; i < trends.length - 1; i++) {
+                var h2 = h2s[i];
+                h2.innerHTML = trends[i].toString();
+
+                var articleURL = dataRoot + dateExt + "/" + i + ".txt";
+                jQuery.get(articleURL, function(article_data) {
+                    var p = ps[i]
+                    p.innerHTML = article_data.toString()
+                })
+                .promise().done(function() {
+                    console.log(i)
+                });
+            };
+        });
+    </script>
+</footer>
+</html>
